@@ -1,0 +1,28 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "pranaygp.vscode-css-peek",
+    "oouo-diogo-perdigao.docthis",
+    "mhutchie.git-graph",
+    "nhoizey.gremlins",
+    "ecmel.vscode-html-css",
+    "wix.vscode-import-cost",
+    "brunnerh.insert-unicode",
+    "visualstudioexptteam.vscodeintellicode",
+    "zignd.html-css-class-completion",
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    "tyriar.lorem-ipsum",
+    "cardinal90.multi-cursor-case-preserve",
+    "yoavbls.pretty-ts-errors",
+    "mechatroner.rainbow-csv",
+    "chrmarti.regex",
+    "tabnine.tabnine-vscode",
+    "albert.tabout",
+    "bradlc.vscode-tailwindcss",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}
