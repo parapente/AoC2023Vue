@@ -3,8 +3,8 @@ import { ref, watch } from 'vue'
 import DropdownList from './DropdownList.vue'
 import router from '@/router/index'
 
-const day = ref('none')
-watch(day, (val) => {
+const daySelected = ref('none')
+watch(daySelected, (val) => {
   if (val === 'none') {
     return
   }
@@ -15,9 +15,9 @@ watch(day, (val) => {
 
 <template>
   <div>
-    <DropdownList v-model="day">
+    <DropdownList v-model="daySelected">
       <option value="none" disabled="true">Please select</option>
-      <option value="01">01</option>
+      <option v-for="day in 25" :value="day" :key="day">{{ day }}</option>
     </DropdownList>
   </div>
 </template>
