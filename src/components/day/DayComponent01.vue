@@ -6,6 +6,7 @@ import FileLoader from '@/components/FileLoader.vue'
 import ShowWorkerStatus from '@/components/ShowWorkerStatus.vue'
 import { part1 } from '@/solutions/01a'
 import { part2 } from '@/solutions/01b'
+import TimerDisplay from '../TimerDisplay.vue'
 
 const storageKey = `AoC2023_day${currentDayFromRoute()}_data`
 
@@ -39,7 +40,9 @@ const startPart2 = async () => {
       <button class="px-3 py-2 bg-blue-500 hover:bg-blue-700 text-black" @click="startPart1">
         Get answer
       </button>
-      <div v-if="worker1.workerStatus.value === 'RUNNING'"></div>
+      <div v-if="worker1.workerStatus.value === 'RUNNING'">
+        <TimerDisplay :enabled="worker1.workerStatus.value === 'RUNNING'" />
+      </div>
       <ShowWorkerStatus :workerStatus="worker1.workerStatus.value" />
       <button
         v-if="worker1.workerStatus.value === 'RUNNING'"
@@ -54,14 +57,17 @@ const startPart2 = async () => {
       <button class="px-3 py-2 bg-blue-500 hover:bg-blue-700 text-black" @click="startPart2">
         Get answer
       </button>
-      <div v-if="answer2" class="font-bold text-yellow-500">Answer: {{ answer2 }}</div>
+      <div v-if="worker2.workerStatus.value === 'RUNNING'">
+        <TimerDisplay :enabled="worker2.workerStatus.value === 'RUNNING'" />
+      </div>
       <ShowWorkerStatus :workerStatus="worker2.workerStatus.value" />
       <button
         v-if="worker2.workerStatus.value === 'RUNNING'"
-        @click="worker1.workerTerminate('PENDING')"
+        @click="worker2.workerTerminate('PENDING')"
       >
         Stop
       </button>
+      <div v-if="answer2" class="font-bold text-yellow-500">Answer: {{ answer2 }}</div>
     </div>
   </div>
 </template>
