@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { onUnmounted, ref, watch } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -62,6 +62,12 @@ watch(
 if (props.enabled) {
   start()
 }
+
+onUnmounted(() => {
+  if (interval !== 0) {
+    clearInterval(interval)
+  }
+})
 </script>
 
 <template>
