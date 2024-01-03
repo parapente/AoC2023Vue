@@ -20,7 +20,6 @@ export const part2 = (data: string): number | null => {
     })
 
     const calibrationValue = numbers.at(0)! + numbers.at(-1)
-    console.log(line, numbers, calibrationValue)
     calibrationValues.push(parseInt(calibrationValue))
   })
 
