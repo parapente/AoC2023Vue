@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { currentDayFromRoute } from '@/utils'
 import { nextTick, ref, type Ref } from 'vue'
-import { useWebWorkerFn } from '@vueuse/core'
+import { useLocalStorage, useWebWorkerFn } from '@vueuse/core'
 import FileLoader from '@/components/FileLoader.vue'
 import ShowWorkerStatus from '@/components/ShowWorkerStatus.vue'
 import { part1 } from '@/solutions/01a'
@@ -23,12 +23,14 @@ const worker2 = useWebWorkerFn<typeof part2>(part2, {
 
 const startPart1 = async () => {
   await nextTick()
-  answer1.value = await worker1.workerFn(storageKey)
+  const storage = useLocalStorage<string>(storageKey, null)
+  answer1.value = await worker1.workerFn(storage.value)
 }
 
 const startPart2 = async () => {
   await nextTick()
-  answer2.value = await worker2.workerFn()
+  const storage = useLocalStorage<string>(storageKey, null)
+  answer2.value = await worker2.workerFn(storage.value)
 }
 </script>
 
