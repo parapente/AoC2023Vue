@@ -18,7 +18,7 @@ const worker1 = useWebWorkerFn<typeof part1>(part1, {
 })
 
 const worker2 = useWebWorkerFn<typeof part2>(part2, {
-  timeout: 0
+  timeout: 50000
 })
 
 const startPart1 = async () => {
